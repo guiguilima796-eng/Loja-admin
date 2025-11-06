@@ -23,3 +23,9 @@ class Produto(models.Model):
         default= True,
         help_text="Marque-se o produto que está ativo"
     )
+    class Meta:
+        verbose_name = "Produto",
+        verbose_name_plural ="Produtos",
+        ordering = ["nome"]
+    def __str__(self):
+        return f"{self.nome} (R${self.preco:.2f})"
