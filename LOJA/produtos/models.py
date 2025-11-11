@@ -7,10 +7,10 @@ class Produto(models.Model):
         max_length=100,
         help_text="Informe o nome do produto"
     )
-    preco = models.CharField(
+    preco = models.DecimalField(
         "Preço de Venda",
         max_digits=8,
-        decimal_place=2,
+        decimal_places =2,
         help_text="Informe o Preço Unitario em Reais do Produto"
         )
     estoque = models.PositiveIntegerField(
@@ -24,8 +24,8 @@ class Produto(models.Model):
         help_text="Marque-se o produto que está ativo"
     )
     class Meta:
-        verbose_name = "Produto",
-        verbose_name_plural ="Produtos",
+        verbose_name = "Produto"      
+        verbose_name_plural ="Produtos"
         ordering = ["nome"]
     def __str__(self):
         return f"{self.nome} (R${self.preco:.2f})"
